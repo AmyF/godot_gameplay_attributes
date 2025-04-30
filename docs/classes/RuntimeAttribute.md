@@ -26,6 +26,7 @@ It is built by the [AttributeContainer](AttributeContainer.md) class.
 
 ## Methods
 
+- `get_attribute_name`: returns the attribute name.
 - `get_buffed_value`: gets the value of the attribute after applying buffs.
 - `get_buffs`: gets the buffs applied to the attribute.
 - `get_parent_runtime_attributes`: returns the attributes this runtime attribute is derived from. 
