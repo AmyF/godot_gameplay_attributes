@@ -973,17 +973,25 @@ Ref<AttributeSet> RuntimeAttribute::get_attribute_set() const
 
 float RuntimeAttribute::get_buffed_value() const
 {
-	float current_value = value;
+	float add_sub_total = value;
+	float div_mul_multiplier = 1.0f;
+	float perc_multiplier = 1.0f;
 
 	for (int i = 0; i < buffs.size(); i++) {
 		const Ref<RuntimeBuff> buff = buffs[i];
 
-		if (Ref<AttributeBuff> attribute_buff = buff->get_buff(); attribute_buff.is_valid() && !attribute_buff.is_null()) {
-			current_value = attribute_buff->operate(current_value);
+		if (Ref<AttributeBuff> attribute_buff = buff->get_buff(); attribute_buff.is_valid()) {
+			if (attribute_buff->get_operation()->get_operand() == OP_ADD || attribute_buff->get_operation()->get_operand() == OP_SUBTRACT) {
+				add_sub_total = attribute_buff->operate(add_sub_total);
+			} else if (attribute_buff->get_operation()->get_operand() == OP_MULTIPLY || attribute_buff->get_operation()->get_operand() == OP_DIVIDE) {
+				div_mul_multiplier = attribute_buff->operate(div_mul_multiplier);
+			} else if (attribute_buff->get_operation()->get_operand() == OP_PERCENTAGE) {
+				perc_multiplier = attribute_buff->operate(perc_multiplier);
+			}
 		}
 	}
 
-	return current_value;
+	return add_sub_total * div_mul_multiplier * perc_multiplier;
 }
 
 TypedArray<AttributeBase> RuntimeAttribute::get_derived_from() const
