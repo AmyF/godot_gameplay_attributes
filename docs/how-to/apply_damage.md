@@ -26,7 +26,7 @@ extends AttributeBuff
 
 @export var damage: float = 1.0
 
-func _ready(_damage: float):
+func _init(_damage: float):
     attribute_name = HealthAttribute.ATTRIBUTE_NAME
     damage = _damage
     operation = AttributeOperation.sub(damage)
