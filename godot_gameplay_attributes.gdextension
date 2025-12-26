@@ -6,6 +6,8 @@ reloadable = true
 [libraries]
 windows.debug.x86_64 = "res://addons/godot_gameplay_attributes/bin/windows/godot_gameplay_attributes.windows.template_debug.x86_64.dll"
 windows.release.x86_64 = "res://addons/godot_gameplay_attributes/bin/windows/godot_gameplay_attributes.windows.template_release.x86_64.dll"
+macos.debug = "res://addons/godot_gameplay_attributes/bin/macos/macos.framework/libgodot-gameplay-abilities.macos.template_debug"
+macos.release = "res://addons/godot_gameplay_attributes/bin/macos/macos.framework/libgodot-gameplay-abilities.macos.template_release"
 linux.debug.x86_64 = "res://addons/godot_gameplay_attributes/bin/linux/libgodot_gameplay_attributes.linux.template_debug.x86_64.so"
 linux.release.x86_64 = "res://addons/godot_gameplay_attributes/bin/linux/libgodot_gameplay_attributes.linux.template_release.x86_64.so"
 linux.debug.arm64 = "res://addons/godot_gameplay_attributes/bin/linux/libgodot_gameplay_attributes.linux.template_debug.arm64.so"
