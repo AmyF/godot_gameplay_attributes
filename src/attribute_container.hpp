@@ -12,6 +12,7 @@
 #define OCTOD_GAMEPLAY_ATTRIBUTES_ATTRIBUTE_CONTAINER_H
 
 #include <godot_cpp/classes/node.hpp>
+#include <godot_cpp/classes/ref.hpp>
 
 using namespace godot;
 
